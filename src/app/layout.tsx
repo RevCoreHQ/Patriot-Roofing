@@ -30,21 +30,37 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: [
+    'pool construction Utah',
+    'swimming pool builders Utah',
+    'custom pool builder Saratoga Springs',
+    'pool installation Utah County',
+    'landscape construction Utah',
+    'concrete services Utah',
+    'outdoor living contractor Utah',
+    'pool builders Bountiful UT',
+    'inground pool Utah',
+    'Timberline Falls',
+  ],
+  alternates: { canonical: siteConfig.url },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630 }],
+    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: `${siteConfig.name} — Pool, Landscape & Concrete Construction in Utah` }],
   },
   twitter: { card: 'summary_large_image' },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfairDisplay.variable} ${dmSans.variable}`}>
       <head>
+        <link rel="preconnect" href="https://assets.cdn.filesafe.space" />
+        <link rel="preconnect" href="https://storage.googleapis.com" />
+        <link rel="dns-prefetch" href="https://lirp.cdn-website.com" />
         <JsonLd data={localBusinessSchema()} />
       </head>
       <body className="min-h-screen flex flex-col">

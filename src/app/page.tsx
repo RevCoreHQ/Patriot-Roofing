@@ -186,7 +186,7 @@ export default function HomePage() {
                     fill
                     sizes="(max-width: 1024px) 50vw, 33vw"
                     quality={70}
-                    priority={i < 4}
+                    priority={i < 2}
                     className="object-cover object-center"
                   />
                 </div>

@@ -4,6 +4,8 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { siteConfig } from '@/data/site-config';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Contact Timberline Falls — Free Estimate | Pool & Landscape Builder UT',
@@ -13,6 +15,11 @@ export const metadata: Metadata = generatePageMetadata({
 
 export default function ContactPage() {
   return (
+    <>
+    <JsonLd data={breadcrumbSchema([
+      { name: 'Home', url: siteConfig.url },
+      { name: 'Contact', url: `${siteConfig.url}/contact` },
+    ])} />
     <div className="section-padding">
       <div className="container-wide">
         <Breadcrumbs items={[{ label: 'Contact', href: '/contact' }]} />
@@ -78,5 +85,6 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

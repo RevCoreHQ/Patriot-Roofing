@@ -30,7 +30,7 @@ export function ServiceCards({ category, limit, title, subtitle }: ServiceCardsP
           </div>
         )}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {items.map((service) => (
+          {items.map((service, index) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}
@@ -43,7 +43,8 @@ export function ServiceCards({ category, limit, title, subtitle }: ServiceCardsP
                     alt={service.heroAlt}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    quality={70}
+                    quality={75}
+                    priority={index < 3}
                     className="object-cover object-center"
                   />
                 )}

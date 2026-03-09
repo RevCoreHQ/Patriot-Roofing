@@ -1,16 +1,30 @@
 import { siteConfig } from '@/data/site-config';
 
 export function localBusinessSchema() {
+  const sameAs = [
+    siteConfig.url,
+    siteConfig.social.google,
+    siteConfig.social.facebook,
+    siteConfig.social.instagram,
+  ].filter(Boolean);
+
   return {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
     '@id': `${siteConfig.url}/#business`,
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
     telephone: siteConfig.phone,
+    email: siteConfig.email,
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://storage.googleapis.com/msgsndr/VpxNeZuIvxjzZljfxNjd/media/6991e27365ad362154b97372.png',
+    },
+    image: siteConfig.ogImage,
     address: {
       '@type': 'PostalAddress',
+      streetAddress: siteConfig.address.street || undefined,
       addressLocality: siteConfig.address.city,
       addressRegion: siteConfig.address.state,
       postalCode: siteConfig.address.zip,
@@ -21,6 +35,7 @@ export function localBusinessSchema() {
       latitude: 40.3442899,
       longitude: -111.91013,
     },
+    hasMap: siteConfig.social.google,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
@@ -29,6 +44,13 @@ export function localBusinessSchema() {
         closes: '17:00',
       },
     ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: siteConfig.phone,
+      contactType: 'customer service',
+      areaServed: 'UT',
+      availableLanguage: 'English',
+    },
     areaServed: [
       { '@type': 'AdministrativeArea', name: 'Utah County', addressRegion: 'UT' },
       { '@type': 'AdministrativeArea', name: 'Salt Lake County', addressRegion: 'UT' },
@@ -37,8 +59,18 @@ export function localBusinessSchema() {
       { '@type': 'AdministrativeArea', name: 'Tooele County', addressRegion: 'UT' },
       { '@type': 'AdministrativeArea', name: 'Box Elder County', addressRegion: 'UT' },
     ],
+    sameAs,
     priceRange: '$$$$',
-    image: siteConfig.ogImage,
+    knowsAbout: [
+      'Swimming Pool Construction',
+      'Pool Installation Utah',
+      'Landscape Construction',
+      'Concrete Services',
+      'Outdoor Living Construction',
+      'Retaining Walls',
+      'Outdoor Kitchens',
+      'Artificial Turf Installation',
+    ],
   };
 }
 
@@ -64,6 +96,7 @@ export function serviceSchema(name: string, description: string, url: string) {
     url,
     provider: {
       '@type': 'LocalBusiness',
+      '@id': `${siteConfig.url}/#business`,
       name: siteConfig.name,
       telephone: siteConfig.phone,
     },

@@ -1,8 +1,11 @@
 import { Metadata } from 'next';
 import { generatePageMetadata } from '@/lib/metadata';
+import { siteConfig } from '@/data/site-config';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ServiceCards } from '@/components/sections/ServiceCards';
 import { CTASection } from '@/components/sections/CTASection';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Our Services — Pool, Landscape & Concrete | Timberline Falls UT',
@@ -13,6 +16,10 @@ export const metadata: Metadata = generatePageMetadata({
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home', url: siteConfig.url },
+        { name: 'Services', url: `${siteConfig.url}/services` },
+      ])} />
       <div className="section-padding pb-0">
         <div className="container-wide">
           <Breadcrumbs items={[{ label: 'Services', href: '/services' }]} />

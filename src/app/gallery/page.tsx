@@ -1,8 +1,11 @@
 import { Metadata } from 'next';
 import { generatePageMetadata } from '@/lib/metadata';
+import { siteConfig } from '@/data/site-config';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ProjectGrid } from '@/components/sections/ProjectGrid';
 import { CTASection } from '@/components/sections/CTASection';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
   title: 'Gallery — Pool & Outdoor Living Portfolio | Timberline Falls UT',
@@ -13,6 +16,10 @@ export const metadata: Metadata = generatePageMetadata({
 export default function GalleryPage() {
   return (
     <>
+      <JsonLd data={breadcrumbSchema([
+        { name: 'Home', url: siteConfig.url },
+        { name: 'Gallery', url: `${siteConfig.url}/gallery` },
+      ])} />
       <div className="section-padding pb-0">
         <div className="container-wide">
           <Breadcrumbs items={[{ label: 'Gallery', href: '/gallery' }]} />

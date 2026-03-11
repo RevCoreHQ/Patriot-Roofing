@@ -14,11 +14,26 @@ export function TrustStrip() {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
-      { threshold: 0.15 }
+      ([entry]) => {
+        // Only animate in after user has scrolled (not on initial page load)
+        if (entry.isIntersecting && window.scrollY > 80) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2, rootMargin: '0px 0px -60px 0px' }
     );
     observer.observe(el);
-    return () => observer.disconnect();
+    // Re-check on scroll in case observer already fired before scroll
+    const onScroll = () => {
+      if (window.scrollY > 80 && el.getBoundingClientRect().top < window.innerHeight - 60) {
+        setVisible(true);
+        observer.disconnect();
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener('scroll', onScroll); };
   }, []);
 
   return (

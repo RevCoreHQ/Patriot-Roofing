@@ -25,7 +25,7 @@ export function Hero({
   overlay = true,
 }: HeroProps) {
   return (
-    <section className="relative min-h-[75vh] lg:min-h-[85vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background video */}
       {backgroundVideo ? (
         <>

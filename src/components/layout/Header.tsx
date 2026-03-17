@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Menu, X, ChevronDown } from 'lucide-react';
@@ -13,6 +14,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === '/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -20,11 +23,14 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Transparent only on homepage before scroll; always solid on inner pages
+  const isSolid = !isHome || scrolled || mobileOpen;
+
   return (
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        scrolled || mobileOpen
+        isSolid
           ? 'bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm'
           : 'bg-transparent border-b border-transparent'
       )}
@@ -56,7 +62,7 @@ export function Header() {
                   href={item.href}
                   className={cn(
                     'flex items-center gap-1 px-3 py-2 text-sm font-medium transition-colors rounded-lg whitespace-nowrap',
-                    scrolled || mobileOpen
+                    isSolid
                       ? 'text-slate-700 hover:text-brand-600 hover:bg-brand-50/50'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   )}
@@ -90,7 +96,7 @@ export function Header() {
               href={`tel:${siteConfig.phoneRaw}`}
               className={cn(
                 'flex items-center gap-2 text-sm font-medium transition-colors whitespace-nowrap',
-                scrolled ? 'text-slate-700 hover:text-brand-600' : 'text-white/90 hover:text-white'
+                isSolid ? 'text-slate-700 hover:text-brand-600' : 'text-white/90 hover:text-white'
               )}
             >
               <Phone className="w-4 h-4" />
@@ -106,7 +112,7 @@ export function Header() {
             onClick={() => setMobileOpen(!mobileOpen)}
             className={cn(
               'lg:hidden p-2 transition-colors',
-              scrolled || mobileOpen ? 'text-slate-700 hover:text-brand-600' : 'text-white hover:text-white/80'
+              isSolid ? 'text-slate-700 hover:text-brand-600' : 'text-white hover:text-white/80'
             )}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
           >

@@ -5,7 +5,6 @@ export interface NavItem {
 }
 
 export const mainNav: NavItem[] = [
-  { label: 'Home', href: '/' },
   {
     label: 'Services',
     href: '/services',
@@ -14,19 +13,14 @@ export const mainNav: NavItem[] = [
       { label: '3D Pool Design', href: '/services/pool-design-3d' },
       { label: 'Water Features', href: '/services/water-features' },
       { label: 'Pool Remodeling & Upgrades', href: '/services/pool-renovation-remodeling' },
-      { label: 'Landscape Construction', href: '/services/landscape-construction' },
-      { label: 'Artificial Turf', href: '/services/artificial-turf' },
       { label: 'Outdoor Kitchens', href: '/services/outdoor-kitchens' },
       { label: 'Patios & Walkways', href: '/services/patios-walkways' },
-      { label: 'Irrigation & Lighting', href: '/services/irrigation-lighting' },
-      { label: 'Concrete Services', href: '/services/concrete-services' },
-      { label: 'Concrete Driveways', href: '/services/concrete-driveways' },
+      { label: 'Landscape Construction', href: '/services/landscape-construction' },
       { label: 'Retaining Walls', href: '/services/retaining-walls' },
-      { label: 'Stamped & Colored Concrete', href: '/services/stamped-colored-concrete' },
+      { label: 'Concrete Services', href: '/services/concrete-services' },
     ],
   },
   { label: 'Gallery', href: '/gallery' },
-  { label: 'Process', href: '/process' },
   {
     label: 'Areas',
     href: '/service-areas',
@@ -40,8 +34,6 @@ export const mainNav: NavItem[] = [
     ],
   },
   { label: 'About', href: '/about' },
-  { label: 'FAQ', href: '/faq' },
-  { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
 ];
 

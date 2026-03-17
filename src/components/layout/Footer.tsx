@@ -128,6 +128,22 @@ export function Footer() {
             <Link href="/sitemap.xml" className="hover:text-slate-400 transition-colors">
               Sitemap
             </Link>
+            <a
+              href="https://revcorehq.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-slate-600 hover:text-slate-300 transition-colors"
+            >
+              Powered by
+              <Image
+                src="https://assets.cdn.filesafe.space/NYlSya2nYSkSnnXEbY2l/media/69a9af9fb003fa7bb8bb92ee.png"
+                alt="RevCore"
+                width={16}
+                height={16}
+                className="inline-block rounded-sm"
+              />
+              RevCore
+            </a>
           </div>
         </div>
       </div>

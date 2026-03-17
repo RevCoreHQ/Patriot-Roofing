@@ -125,9 +125,6 @@ export function Footer() {
             © {currentYear} {siteConfig.name}. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-slate-500">
-            <Link href="/sitemap.xml" className="hover:text-slate-400 transition-colors">
-              Sitemap
-            </Link>
             <a
               href="https://revcorehq.com"
               target="_blank"
@@ -140,7 +137,7 @@ export function Footer() {
                 alt="RevCore"
                 width={16}
                 height={16}
-                className="inline-block rounded-sm"
+                className="inline-block rounded-sm brightness-0 invert"
               />
               RevCore
             </a>

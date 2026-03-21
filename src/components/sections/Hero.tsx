@@ -1,7 +1,9 @@
+'use client';
+
 import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/data/site-config';
-import { Phone } from 'lucide-react';
+import { Phone, ChevronDown } from 'lucide-react';
 
 interface HeroProps {
   headline: string;
@@ -11,6 +13,7 @@ interface HeroProps {
   secondaryCta?: { label: string; href: string };
   backgroundImage?: string;
   backgroundVideo?: string;
+  videoPoster?: string;
   overlay?: boolean;
 }
 
@@ -22,6 +25,7 @@ export function Hero({
   secondaryCta,
   backgroundImage,
   backgroundVideo,
+  videoPoster,
   overlay = true,
 }: HeroProps) {
   return (
@@ -45,6 +49,7 @@ export function Hero({
             muted
             loop
             playsInline
+            poster={videoPoster || backgroundImage}
             className="absolute inset-0 w-full h-full object-cover object-center"
           >
             <source src={backgroundVideo} type="video/mp4" />
@@ -73,9 +78,9 @@ export function Hero({
           {subheadline && (
             <div className="animate-fade-in mb-6">
               <p className="inline-flex items-center gap-2 text-sm sm:text-base font-medium tracking-wider uppercase">
-                <span className="w-8 h-px bg-accent-gold" />
-                <span className="gradient-text-gold">{subheadline}</span>
-                <span className="w-8 h-px bg-accent-gold" />
+                <span className="w-8 h-px bg-accent-red" />
+                <span className="gradient-text-accent">{subheadline}</span>
+                <span className="w-8 h-px bg-accent-red" />
               </p>
             </div>
           )}
@@ -104,6 +109,18 @@ export function Hero({
             )}
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+        <button
+          onClick={() => window.scrollBy({ top: window.innerHeight * 0.85, behavior: 'smooth' })}
+          aria-label="Scroll down"
+          className="flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors"
+        >
+          <span className="text-[10px] font-medium tracking-[0.2em] uppercase">Scroll</span>
+          <ChevronDown className="w-5 h-5 animate-float" />
+        </button>
       </div>
     </section>
   );

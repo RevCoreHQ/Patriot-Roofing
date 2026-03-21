@@ -15,15 +15,15 @@ export function FAQAccordion({ faqs, title, subtitle }: FAQAccordionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="section-padding bg-gradient-to-b from-sand-50 to-white">
+    <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
       <div className="container-narrow">
         {title && (
           <div className="text-center mb-12">
             {subtitle && (
               <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase mb-3 mx-auto">
-                <span className="w-6 h-px bg-accent-gold" />
-                <span className="gradient-text-gold">{subtitle}</span>
-                <span className="w-6 h-px bg-accent-gold" />
+                <span className="w-6 h-px bg-accent-red" />
+                <span className="gradient-text-accent">{subtitle}</span>
+                <span className="w-6 h-px bg-accent-red" />
               </p>
             )}
             <h2 className="text-3xl sm:text-4xl font-display font-bold text-slate-900">

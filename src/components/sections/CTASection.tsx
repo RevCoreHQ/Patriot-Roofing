@@ -1,6 +1,10 @@
+'use client';
+
 import { Button } from '@/components/ui/Button';
 import { siteConfig } from '@/data/site-config';
 import { Phone } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 
 interface CTASectionProps {
   headline?: string;
@@ -9,22 +13,22 @@ interface CTASectionProps {
 }
 
 export function CTASection({
-  headline = 'Ready to Transform Your Outdoor Space?',
-  description = 'Get a free estimate from our team. We will walk your property, listen to your vision, and provide a detailed proposal, no obligation.',
+  headline = 'Ready to Protect Your Home?',
+  description = 'Get a free inspection from our team. We will assess your roof, discuss your options, and provide a detailed estimate, no obligation.',
   variant = 'dark',
 }: CTASectionProps) {
+  const { ref, visible } = useScrollReveal();
+
   const bgClasses = {
     dark: 'bg-slate-900 text-white',
-    light: 'bg-sand-50 text-slate-900',
+    light: 'bg-slate-50 text-slate-900',
     brand: 'bg-brand-700 text-white',
   };
 
   return (
     <section className={cn(bgClasses[variant], 'section-padding relative overflow-hidden')}>
-      {/* Gold accent line at top */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-gold/50 to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-red/50 to-transparent" />
 
-      {/* Decorative orbs */}
       {variant === 'dark' && (
         <>
           <div className="orb w-[400px] h-[400px] bg-brand-600/10 -top-[20%] -right-[10%]" />
@@ -32,7 +36,15 @@ export function CTASection({
         </>
       )}
 
-      <div className="container-narrow text-center relative z-10">
+      <div
+        ref={ref}
+        className="container-narrow text-center relative z-10"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(24px)',
+          transition: 'opacity 0.6s ease, transform 0.6s ease',
+        }}
+      >
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-5">
           {headline}
         </h2>
@@ -46,7 +58,7 @@ export function CTASection({
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button href="/contact" size="lg" variant={variant === 'light' ? 'primary' : 'secondary'}>
-            Get Your Free Estimate
+            Get a Free Inspection
           </Button>
           <a
             href={`tel:${siteConfig.phoneRaw}`}
@@ -59,8 +71,4 @@ export function CTASection({
       </div>
     </section>
   );
-}
-
-function cn(...classes: (string | undefined)[]) {
-  return classes.filter(Boolean).join(' ');
 }

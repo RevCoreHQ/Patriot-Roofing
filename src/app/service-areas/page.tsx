@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, ArrowRight, Phone } from 'lucide-react';
 import { serviceAreas } from '@/data/service-areas';
@@ -12,9 +11,9 @@ import { Button } from '@/components/ui/Button';
 import { CTASection } from '@/components/sections/CTASection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Service Areas in Utah — Timberline Falls',
+  title: 'Service Areas in North Carolina — Patriot Roofing & Home Repair',
   description:
-    'Timberline Falls serves Utah County, Salt Lake County, Davis County, Summit County, Tooele County, Box Elder County, and surrounding Utah communities with pool construction, landscaping, and concrete services.',
+    'Patriot Roofing & Home Repair serves Lexington, Greensboro, Winston-Salem, High Point, Thomasville, Kernersville, Clemmons, and surrounding NC communities with roofing and home repair services.',
   path: '/service-areas',
 });
 
@@ -35,27 +34,18 @@ export default function ServiceAreasPage() {
 
       {/* Hero */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 overflow-hidden">
-        <Image
-          src="https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/69a0b2ed9a0c18b2f11513c3.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          quality={70}
-          className="object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-slate-950/75" />
+        <div className="absolute inset-0 bg-slate-950/20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={[{ label: 'Service Areas', href: '/service-areas' }]} variant="dark" />
           <div className="max-w-3xl mt-4">
             <h1 className="text-4xl sm:text-5xl font-display font-bold text-white mb-6">
-              Areas We Serve in Utah
+              Areas We Serve in North Carolina
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed mb-8">
-              Timberline Falls provides custom pool construction, landscape design, and concrete services throughout the Wasatch Front. We proudly serve homeowners across Utah County, Salt Lake County, Davis County, Summit County, Tooele County, and Box Elder County.
+              Patriot Roofing & Home Repair provides professional roofing installation, replacement, repair, and home renovation services throughout the Piedmont Triad region. We proudly serve homeowners across Lexington, Greensboro, Winston-Salem, High Point, and surrounding communities.
             </p>
             <Button href="/contact" size="lg">
-              Get Your Free Estimate
+              Get Your Free Inspection
             </Button>
           </div>
         </div>
@@ -94,7 +84,7 @@ export default function ServiceAreasPage() {
       </section>
 
       {/* Nearby Areas */}
-      <section className="section-padding bg-sand-50">
+      <section className="section-padding bg-slate-50">
         <div className="container-wide">
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-2">Nearby Communities We Serve</h2>
           <p className="text-slate-600 mb-8">
@@ -123,14 +113,14 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
-      {/* Don&apos;t see your area? */}
+      {/* Don't see your area? */}
       <section className="section-padding">
         <div className="container-wide text-center max-w-2xl mx-auto">
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-4">
             Don&apos;t See Your City?
           </h2>
           <p className="text-slate-600 leading-relaxed mb-8">
-            We serve many communities across the Wasatch Front and are happy to discuss projects outside our listed service areas. Give us a call to see if we can help with your project.
+            We serve many communities across the Piedmont Triad and are happy to discuss projects outside our listed service areas. Give us a call to see if we can help with your project.
           </p>
           <Button href={`tel:${siteConfig.phoneRaw}`} size="lg" variant="outline">
             <Phone className="w-4 h-4 mr-2" />

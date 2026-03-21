@@ -11,9 +11,9 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { CTASection } from '@/components/sections/CTASection';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Blog — Timberline Falls',
+  title: 'Blog — Patriot Roofing & Home Repair',
   description:
-    'Expert tips, cost guides, and project planning advice from Timberline Falls — Utah pool builders, landscapers, and concrete contractors.',
+    'Expert roofing tips, cost guides, and home improvement advice from Patriot Roofing & Home Repair — serving Lexington, NC and the Piedmont Triad.',
   path: '/blog',
 });
 
@@ -38,7 +38,7 @@ export default function BlogPage() {
               Tips, Guides &amp; Insights
             </h1>
             <p className="text-xl text-slate-300 leading-relaxed">
-              Expert advice from the Timberline Falls team to help you plan your outdoor living project, from pool construction cost guides to concrete comparisons and seasonal scheduling tips.
+              Expert roofing advice from the Patriot Roofing team to help you maintain and protect your home, from roof replacement cost guides to material comparisons and maintenance tips.
             </p>
           </div>
         </div>
@@ -54,7 +54,7 @@ export default function BlogPage() {
                 href={`/blog/${post.slug}`}
                 className="group flex flex-col bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all overflow-hidden"
               >
-                <div className="relative aspect-[16/9] bg-slate-200">
+                <div className="relative aspect-[16/9] image-placeholder-premium">
                   {post.coverImage && (
                     <Image
                       src={post.coverImage}

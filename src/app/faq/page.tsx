@@ -7,23 +7,23 @@ import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { CTASection } from '@/components/sections/CTASection';
 
 const allFaqs = [
-  { question: 'How much does it cost to build a swimming pool in Utah?', answer: 'Custom pool construction typically ranges from $50,000 to $150,000+ depending on size, features, and site conditions. We provide free estimates for accurate pricing on your specific project.' },
-  { question: 'How long does pool construction take?', answer: 'Most pools take 8 to 14 weeks from groundbreaking to completion. Weather, permits, and custom features can affect the timeline.' },
-  { question: 'Do you handle permits?', answer: 'Yes. We manage the entire permit process including building permits, inspections, and HOA approvals.' },
-  { question: 'Can I see a 3D design before you start building?', answer: 'Absolutely. A 3D design rendering is a standard part of our process. You review and approve every detail before construction begins.' },
-  { question: 'What areas do you serve?', answer: 'We serve Saratoga Springs, Bountiful, and surrounding Utah communities including Lehi, Eagle Mountain, and Draper. Call to confirm availability for your location.' },
-  { question: 'Are you licensed and insured?', answer: 'Yes. Timberline Falls is fully licensed, bonded, and insured with comprehensive liability coverage.' },
-  { question: 'Do you offer financing?', answer: 'We can discuss financing options during your consultation. Contact us to learn about available arrangements for your project.' },
-  { question: 'How thick should a concrete driveway be?', answer: 'At least 4 inches on a compacted gravel base. For heavy vehicles or RVs, we recommend 6 inches with rebar reinforcement.' },
-  { question: 'What is included in landscape construction?', answer: 'Our landscape services cover design, site prep, grading, irrigation, planting, sod/hydroseeding, hardscaping, lighting, and full cleanup.' },
-  { question: 'How long does artificial turf last?', answer: 'Quality artificial turf lasts 15 to 20 years with minimal maintenance. UV-stabilized fibers resist fading in Utah sun.' },
-  { question: 'Do retaining walls need permits in Utah?', answer: 'Walls over 4 feet typically require a building permit and may need engineered drawings. We handle permitting as part of our service.' },
-  { question: 'What is the difference between stamped and regular concrete?', answer: 'Stamped concrete is imprinted with patterns and colored to resemble stone, brick, or tile. It costs more than plain concrete but less than the materials it imitates.' },
+  { question: 'How much does a roof replacement cost in North Carolina?', answer: 'Roof replacement costs typically range from $8,000 to $25,000 depending on the size of your roof, materials chosen, and complexity of the project. We provide free estimates for accurate pricing on your specific home.' },
+  { question: 'How long does a roof replacement take?', answer: 'Most residential roof replacements take 1 to 3 days depending on the size of the roof, weather conditions, and any repairs needed to the decking beneath.' },
+  { question: 'How do I know if I need a new roof?', answer: 'Common signs include missing or curling shingles, leaks or water stains in your attic, granules in your gutters, a sagging roofline, and a roof that is over 20 years old. We offer free inspections to assess your roof condition.' },
+  { question: 'Do you help with insurance claims?', answer: 'Yes. We work with your insurance company throughout the claims process, from the initial damage inspection to the final repair. We document all damage and communicate directly with your adjuster.' },
+  { question: 'What roofing materials do you use?', answer: 'We work with all major roofing materials including architectural shingles, three-tab shingles, and metal roofing. We use trusted brands and can help you choose the best option for your home and budget.' },
+  { question: 'Are you licensed and insured?', answer: 'Yes. Patriot Roofing & Home Repair is fully licensed and insured with comprehensive liability coverage for your protection.' },
+  { question: 'What areas do you serve?', answer: 'We serve Lexington, Greensboro, Winston-Salem, High Point, Thomasville, Kernersville, Clemmons, and surrounding North Carolina communities. Call to confirm availability for your location.' },
+  { question: 'Do you offer free estimates?', answer: 'Yes. Every project begins with a free inspection where we assess the condition of your roof, identify any issues, and provide a detailed written estimate with no obligation.' },
+  { question: 'Do you offer kitchen and bathroom renovations?', answer: 'Yes. In addition to roofing services, we offer full kitchen and bathroom renovation services including cabinets, countertops, tile work, plumbing updates, and more.' },
+  { question: 'What should I do if my roof is leaking?', answer: 'Call us immediately at (336) 479-6059. We offer prompt repair services to address leaks and prevent further damage to your home. If safe, you can place a bucket under the leak and move valuables away from the affected area.' },
+  { question: 'How long do roofing materials last?', answer: 'Three-tab shingles typically last 15 to 20 years, architectural shingles last 25 to 30 years, and metal roofing can last 40 to 70 years. Actual lifespan depends on installation quality, ventilation, and weather exposure.' },
+  { question: 'Do you offer warranties on your work?', answer: 'Yes. We stand behind our workmanship and offer warranties on all roofing installations and replacements. We also help you register manufacturer warranties for the materials used on your project.' },
 ];
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'FAQ — Pool, Landscape & Concrete Questions | Timberline Falls UT',
-  description: 'Answers to common questions about pool construction costs, timelines, permits, landscaping, concrete driveways, and more. Timberline Falls — Utah.',
+  title: 'FAQ — Roofing & Home Repair Questions | Patriot Roofing NC',
+  description: 'Answers to common questions about roof replacement costs, timelines, insurance claims, materials, and more. Patriot Roofing & Home Repair — Lexington, NC.',
   path: '/faq',
 });
 
@@ -40,13 +40,13 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-lg text-slate-600">
-              Find answers to the most common questions about our pool, landscape, and concrete services.
+              Find answers to the most common questions about our roofing and home repair services.
             </p>
           </div>
         </div>
       </div>
       <FAQAccordion faqs={allFaqs} />
-      <CTASection headline="Still Have Questions?" description="Call us at (801) 502-0306 or request a free consultation. We are happy to answer anything." />
+      <CTASection headline="Still Have Questions?" description="Call us at (336) 479-6059 or request a free inspection. We are happy to answer anything." />
     </>
   );
 }

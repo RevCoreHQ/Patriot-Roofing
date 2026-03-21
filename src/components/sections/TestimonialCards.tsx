@@ -1,81 +1,92 @@
-import { Star } from 'lucide-react';
+'use client';
 
-/* TODO: Replace with real testimonials from verified customers. */
+import { Star } from 'lucide-react';
+import { useScrollReveal } from '@/hooks/useScrollReveal';
+
 const testimonials = [
   {
-    id: 'placeholder-1',
-    quote: "We got quotes from three different pool companies and Timberline Falls was the only one that actually walked the whole yard with us before giving a number. The 3D design they did before breaking ground was incredible, my wife cried when she saw it. Pool was done by August and we used it every single weekend. Couldn't be happier.",
-    author: 'Jason R.',
-    location: 'Saratoga Springs, UT',
-    service: 'Pool Construction',
+    id: '1',
+    quote: "From the very first interaction, we were met with friendly and respectful service. The completed work was impressive and exceeded our expectations. Patriot Roofing truly cares about their customers and it shows in every detail of their work.",
+    author: 'Mark O.',
+    location: 'Lexington, NC',
+    service: 'Roofing Installation',
     rating: 5,
   },
   {
-    id: 'placeholder-2',
-    quote: "Our backyard was basically a dirt pit for two years after we moved in. Timberline Falls turned it into something we actually want to spend time in. They handled the grading, the sod, a small retaining wall, and even ran the irrigation. The crew was respectful of our property and cleaned up every day before they left. Genuinely impressed.",
-    author: 'Amber T.',
-    location: 'Bountiful, UT',
-    service: 'Landscape Construction',
+    id: '2',
+    quote: "Their expertise was evident from the start. The team was friendly, efficient, and completed the job in less time than expected. We couldn't be happier with our new roof. Highly recommend Patriot Roofing to anyone looking for quality work.",
+    author: 'Kelly W.',
+    location: 'Greensboro, NC',
+    service: 'Roof Replacement',
     rating: 5,
   },
   {
-    id: 'placeholder-3',
-    quote: "Had them pour a new driveway and an RV pad on the side of the house. Straightforward job but they showed up when they said they would, did clean work, and the finish has held up perfectly through two winters now. Already recommended them to my brother-in-law in Eagle Mountain.",
-    author: 'Derek M.',
-    location: 'Lehi, UT',
-    service: 'Concrete & RV Pad',
+    id: '3',
+    quote: "Skilled and professional from start to finish. The communication was excellent throughout the entire project. They delivered a quality roof at a great price and finished on time. We will definitely use them again for future projects.",
+    author: 'Walt K.',
+    location: 'Winston-Salem, NC',
+    service: 'Roofing Repair',
     rating: 5,
   },
 ];
 
+function TestimonialCard({ t, index }: { t: (typeof testimonials)[number]; index: number }) {
+  const { ref, visible } = useScrollReveal();
+
+  return (
+    <div
+      ref={ref}
+      className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-soft border border-slate-100 border-l-4 border-l-accent-red hover:shadow-card transition-all duration-300"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : 'translateY(28px)',
+        transition: `opacity 0.6s ease ${index * 100}ms, transform 0.6s ease ${index * 100}ms`,
+      }}
+    >
+      <span className="absolute top-4 right-5 text-6xl font-display text-brand-100/60 leading-none select-none pointer-events-none">
+        &ldquo;
+      </span>
+      <div className="relative z-10">
+        <div className="flex gap-0.5 mb-4">
+          {Array.from({ length: t.rating }).map((_, i) => (
+            <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+          ))}
+        </div>
+        <p className="text-slate-700 leading-relaxed mb-5 italic">
+          &ldquo;{t.quote}&rdquo;
+        </p>
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center">
+            <span className="text-sm font-bold text-brand-700">{t.author[0]}</span>
+          </div>
+          <div>
+            <p className="font-semibold text-slate-900">{t.author}</p>
+            <p className="text-sm text-slate-500">{t.location} · {t.service}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function TestimonialCards() {
   return (
-    <section className="section-padding bg-gradient-to-b from-sand-50 to-white relative overflow-hidden">
-      {/* Decorative background elements */}
+    <section className="section-padding bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
       <div className="orb w-[300px] h-[300px] bg-brand-100/30 top-[10%] -right-[5%]" />
-
       <div className="container-wide relative z-10">
         <div className="text-center mb-12 lg:mb-16">
           <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase mb-3">
-            <span className="w-6 h-px bg-accent-gold" />
-            <span className="gradient-text-gold">Client Experiences</span>
-            <span className="w-6 h-px bg-accent-gold" />
+            <span className="w-6 h-px bg-accent-red" />
+            <span className="gradient-text-accent">Client Experiences</span>
+            <span className="w-6 h-px bg-accent-red" />
           </p>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900">
             What Our Clients Say
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.map((t) => (
-            <div
-              key={t.id}
-              className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-soft border border-slate-100 border-l-4 border-l-brand-500 hover:shadow-card transition-all duration-300"
-            >
-              {/* Large decorative quote mark */}
-              <span className="absolute top-4 right-5 text-6xl font-display text-brand-100/60 leading-none select-none pointer-events-none">
-                &ldquo;
-              </span>
-
-              <div className="relative z-10">
-                <div className="flex gap-0.5 mb-4">
-                  {Array.from({ length: t.rating }).map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-slate-700 leading-relaxed mb-5 italic">
-                  &ldquo;{t.quote}&rdquo;
-                </p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-brand-100 to-brand-200 flex items-center justify-center">
-                    <span className="text-sm font-bold text-brand-700">{t.author[1]}</span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-slate-900">{t.author}</p>
-                    <p className="text-sm text-slate-500">{t.location} · {t.service}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {testimonials.map((t, i) => (
+            <TestimonialCard key={t.id} t={t} index={i} />
           ))}
         </div>
       </div>

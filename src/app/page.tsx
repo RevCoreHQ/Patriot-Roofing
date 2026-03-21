@@ -1,75 +1,76 @@
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Droplets, TreePine, Hammer } from 'lucide-react';
+import { ArrowRight, Shield, Home, Wrench } from 'lucide-react';
 import { generatePageMetadata } from '@/lib/metadata';
 import { Hero } from '@/components/sections/Hero';
 import { TrustStrip } from '@/components/sections/TrustStrip';
+import { ManufacturerStrip } from '@/components/sections/ManufacturerStrip';
 import { ProcessSteps } from '@/components/sections/ProcessSteps';
+import { StatsCounter } from '@/components/sections/StatsCounter';
 import { TestimonialCards } from '@/components/sections/TestimonialCards';
 import { CTASection } from '@/components/sections/CTASection';
 import { FAQAccordion } from '@/components/sections/FAQAccordion';
 import { Button } from '@/components/ui/Button';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Timberline Falls | Premier Pool, Landscape & Concrete Builder in Utah',
+  title: 'Patriot Roofing & Home Repair | Roofing Contractor in Lexington, NC',
   description:
-    'Custom swimming pools, landscape construction, and concrete services in Saratoga Springs, Bountiful & surrounding Utah areas. 20+ years experience. Licensed & insured. Free estimates.',
+    'Professional roofing installation, roof replacement, repairs, and home renovations in Lexington, NC and surrounding areas. 15+ years experience. Licensed & insured. Free inspections.',
   path: '/',
 });
 
 const serviceCategories = [
   {
-    icon: Droplets,
-    title: 'Swimming Pool Construction',
+    icon: Shield,
+    title: 'Roofing Services',
     description:
-      'Custom in-ground pools designed for your lifestyle and engineered for Utah\'s climate. From concept to completion, we handle every detail.',
-    href: '/services/swimming-pool-construction',
-    features: ['Custom Design', 'Water Features', '3D Approval', 'Full Build'],
+      'Professional roofing installation, replacement, and repair. We protect your home with quality materials and expert craftsmanship built to last.',
+    href: '/services/roofing-installation',
+    features: ['Installation', 'Replacement', 'Repair', 'Storm Damage'],
   },
   {
-    icon: TreePine,
-    title: 'Landscape Construction',
+    icon: Home,
+    title: 'Home Renovations',
     description:
-      'Complete landscape design and installation, including grading, irrigation, planting, hardscaping, lighting, and outdoor living spaces.',
-    href: '/services/landscape-construction',
-    features: ['Full Design', 'Irrigation', 'Artificial Turf', 'Outdoor Kitchens'],
+      'Transform your kitchen or bathroom with professional renovation services. Modern upgrades that improve functionality and increase your home\'s value.',
+    href: '/services/kitchen-renovation',
+    features: ['Kitchen Remodel', 'Bathroom Remodel', 'Countertops', 'Flooring'],
   },
   {
-    icon: Hammer,
-    title: 'Concrete Services',
+    icon: Wrench,
+    title: 'Home Repair',
     description:
-      'Driveways, retaining walls, patios, sidewalks, and decorative stamped concrete, built with proper prep and reinforcement to last.',
-    href: '/services/concrete-services',
-    features: ['Driveways', 'Retaining Walls', 'Stamped Concrete', 'RV Pads'],
+      'Keep your property safe, functional, and well-maintained with our professional home repair services. No job is too small.',
+    href: '/services/home-repair',
+    features: ['Drywall', 'Painting', 'Doors & Windows', 'Siding'],
   },
 ];
 
 const homeFaqs = [
   {
-    question: 'How much does it cost to build a pool in Utah?',
+    question: 'How much does a roof replacement cost in North Carolina?',
     answer:
-      'Custom pool construction in Utah typically ranges from $50,000 to $150,000+ depending on size, features, and site conditions. We provide free, no-obligation estimates for every project.',
+      'Roof replacement costs in North Carolina typically range from $8,000 to $25,000 depending on the size of your roof, materials chosen, and complexity of the job. We provide free, no-obligation estimates for every project.',
   },
   {
-    question: 'Do you offer free estimates?',
+    question: 'Do you offer free inspections?',
     answer:
-      'Yes. Every project begins with a free on-site consultation where we assess your property, discuss your vision, and provide a detailed estimate.',
+      'Yes. Every project begins with a free roof inspection where we assess your roof condition, identify any issues, and provide a detailed estimate with transparent pricing.',
   },
   {
     question: 'What areas do you serve?',
     answer:
-      'We serve Saratoga Springs, Bountiful, and surrounding Utah communities including Lehi, Eagle Mountain, and Draper. Contact us to confirm service availability at your location.',
+      'We serve Lexington, Greensboro, Winston-Salem, High Point, Thomasville, Kernersville, Clemmons, and surrounding North Carolina communities. Contact us to confirm service availability at your location.',
   },
   {
     question: 'Are you licensed and insured?',
     answer:
-      'Absolutely. Timberline Falls is fully licensed, bonded, and insured. We carry comprehensive liability coverage for your protection.',
+      'Absolutely. Patriot Roofing & Home Repair is fully licensed and insured. We carry comprehensive liability coverage for your protection.',
   },
   {
-    question: 'Can I see a 3D design of my project before you start?',
+    question: 'Do you help with insurance claims for storm damage?',
     answer:
-      'Yes. We create a detailed 3D rendering of your project for your review and approval before any construction begins. It is a standard part of our process.',
+      'Yes. We work with your insurance company throughout the claims process, from the initial inspection to the final repair. We document all damage and communicate directly with your adjuster to help ensure fair coverage.',
   },
 ];
 
@@ -77,29 +78,29 @@ export default function HomePage() {
   return (
     <>
       <Hero
-        headline="Build the Outdoor Space You've Always Wanted"
-        subheadline="Utah's Trusted Pool & Outdoor Living Builder"
-        description="Custom swimming pools, stunning landscapes, and expert concrete work, designed and built by a team with over 20 years of experience in Saratoga Springs, Bountiful, and surrounding areas."
-        backgroundImage="https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/69a32fc7167da411c97399d7.png"
-        backgroundVideo="https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/69a339dc83726d7632c74825.mp4"
+        headline="Protecting Homes with Quality Roofing & Repairs"
+        subheadline="Lexington, NC's Trusted Roofing Contractor"
+        description="Professional roofing installation, replacement, and repairs, plus expert home renovations from a team with over 15 years of experience serving Lexington and surrounding communities."
       />
 
       <TrustStrip />
+
+      <ManufacturerStrip />
 
       {/* Services Section */}
       <section className="section-padding">
         <div className="container-wide">
           <div className="text-center mb-12 lg:mb-16">
             <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase mb-3">
-              <span className="w-6 h-px bg-accent-gold" />
-              <span className="gradient-text-gold">What We Build</span>
-              <span className="w-6 h-px bg-accent-gold" />
+              <span className="w-6 h-px bg-accent-red" />
+              <span className="gradient-text-accent">What We Do</span>
+              <span className="w-6 h-px bg-accent-red" />
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-4">
-              Three Crafts. One Trusted Team.
+              Reliable Roofing & Home Repair Solutions
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Pool construction, landscape design, and concrete services, all from a single, locally owned contractor you can rely on from start to finish.
+              From roofing installation and repair to kitchen and bathroom renovations, Patriot Roofing delivers quality workmanship you can count on.
             </p>
           </div>
 
@@ -112,8 +113,8 @@ export default function HomePage() {
                   href={cat.href}
                   className="group relative bg-white rounded-2xl border border-slate-100 p-8 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                 >
-                  {/* Top gradient accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  {/* Top accent */}
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-red via-accent-red-light to-accent-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-6 group-hover:from-brand-100 group-hover:to-brand-200 transition-all duration-300 shadow-sm">
                     <Icon className="w-7 h-7 text-brand-700" />
@@ -128,7 +129,7 @@ export default function HomePage() {
                     {cat.features.map((f) => (
                       <span
                         key={f}
-                        className="px-3 py-1 text-xs font-medium bg-sand-50 text-slate-600 rounded-full border border-sand-200"
+                        className="px-3 py-1 text-xs font-medium bg-slate-50 text-slate-600 rounded-full border border-slate-200"
                       >
                         {f}
                       </span>
@@ -153,47 +154,32 @@ export default function HomePage() {
       {/* Process */}
       <ProcessSteps />
 
+      <StatsCounter />
+
       {/* Projects Preview */}
-      <section className="section-padding bg-gradient-to-b from-sand-50 via-sand-50 to-white">
+      <section className="section-padding bg-gradient-to-b from-slate-50 via-slate-50 to-white">
         <div className="container-wide">
           <div className="text-center mb-12">
             <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase mb-3">
-              <span className="w-6 h-px bg-accent-gold" />
-              <span className="gradient-text-gold">Our Work</span>
-              <span className="w-6 h-px bg-accent-gold" />
+              <span className="w-6 h-px bg-accent-red" />
+              <span className="gradient-text-accent">Our Work</span>
+              <span className="w-6 h-px bg-accent-red" />
             </p>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-slate-900 mb-4">
               Projects That Speak for Themselves
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Browse our portfolio of completed pools, landscapes, and concrete projects across northern Utah.
+              Browse our portfolio of completed roofing, renovation, and home repair projects across the Piedmont Triad.
             </p>
           </div>
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            {[
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56fe9512da1bdaad21f.jpg',
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56f2837e84064252853.jpg',
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56fe9512d2930aad21e.jpg',
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da7c52d8479b3ef5ed66a.jpg',
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f502395735c151ac48c31.jpg',
-              'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f50239a0c1801d793bc5c.jpg',
-            ].map((src, i) =>
-              src ? (
-                <div key={i} className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-soft bg-slate-200">
-                  <Image
-                    src={src}
-                    alt="Pool construction project by Timberline Falls"
-                    fill
-                    sizes="(max-width: 1024px) 50vw, 33vw"
-                    quality={70}
-                    priority={i < 2}
-                    className="object-cover object-center"
-                  />
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="image-placeholder-premium aspect-[4/3] rounded-2xl shadow-soft">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="text-white/20 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
                 </div>
-              ) : (
-                <div key={i} className="image-placeholder-premium aspect-[4/3] rounded-2xl shadow-soft" />
-              )
-            )}
+              </div>
+            ))}
           </div>
           <div className="text-center mt-10">
             <Button href="/gallery">View Full Gallery</Button>

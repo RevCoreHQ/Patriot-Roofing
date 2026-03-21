@@ -1,126 +1,24 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { X } from 'lucide-react';
 
 const projects = [
-  {
-    id: 1,
-    title: 'Custom Pool Build',
-    location: 'Saratoga Springs, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56fe9512da1bdaad21f.jpg',
-  },
-  {
-    id: 2,
-    title: 'Luxury Inground Pool',
-    location: 'Bountiful, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56f2837e84064252853.jpg',
-  },
-  {
-    id: 3,
-    title: 'Resort-Style Pool',
-    location: 'Lehi, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da56fe9512d2930aad21e.jpg',
-  },
-  {
-    id: 4,
-    title: 'Pool with Water Features',
-    location: 'Eagle Mountain, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699da7c52d8479b3ef5ed66a.jpg',
-  },
-  {
-    id: 5,
-    title: 'Retaining Wall & Stonework',
-    location: 'Draper, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f51fef074ea4879d2208c.jpg',
-  },
-  {
-    id: 6,
-    title: 'Outdoor Kitchen & Patio',
-    location: 'Saratoga Springs, UT',
-    category: 'Landscaping',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f50235dbbe8b1c857bf2b.jpg',
-  },
-  {
-    id: 7,
-    title: 'Custom Stone Landscape',
-    location: 'Bountiful, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f51fee3be14e39084df38.jpg',
-  },
-  {
-    id: 8,
-    title: 'Stone Patio & Steps',
-    location: 'Eagle Mountain, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f51fe2837e84ab7a33e55.jpg',
-  },
-  {
-    id: 9,
-    title: 'Stone Walkway & Borders',
-    location: 'Lehi, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f51fef074ea0321d2208d.jpg',
-  },
-  {
-    id: 10,
-    title: 'Decorative Stonework',
-    location: 'Saratoga Springs, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f51fee3be1427f784df45.jpg',
-  },
-  {
-    id: 11,
-    title: 'Stamped Concrete Driveway',
-    location: 'Lehi, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f4f728a039eccc1bca32e.jpg',
-  },
-  {
-    id: 12,
-    title: 'Decorative Concrete Patio',
-    location: 'Bountiful, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f4f725dbbe846c65789df.jpg',
-  },
-  {
-    id: 13,
-    title: 'Concrete Pool Deck',
-    location: 'Eagle Mountain, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f4f725dbbe85cf45789e0.jpg',
-  },
-  {
-    id: 14,
-    title: 'Custom Concrete Finish',
-    location: 'Draper, UT',
-    category: 'Concrete',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f4f72753f15299cf47d21.jpg',
-  },
-  {
-    id: 15,
-    title: 'Modern Pool Design',
-    location: 'Saratoga Springs, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f502395735c151ac48c31.jpg',
-  },
-  {
-    id: 16,
-    title: 'Custom Inground Pool',
-    location: 'Lehi, UT',
-    category: 'Pool Construction',
-    image: 'https://assets.cdn.filesafe.space/VpxNeZuIvxjzZljfxNjd/media/699f50239a0c1801d793bc5c.jpg',
-  },
+  { id: 1, title: 'Roof Installation', location: 'Lexington, NC', category: 'Roofing' },
+  { id: 2, title: 'Complete Roof Replacement', location: 'Greensboro, NC', category: 'Roofing' },
+  { id: 3, title: 'Storm Damage Repair', location: 'Winston-Salem, NC', category: 'Roofing' },
+  { id: 4, title: 'Shingle Roof Installation', location: 'High Point, NC', category: 'Roofing' },
+  { id: 5, title: 'Kitchen Renovation', location: 'Lexington, NC', category: 'Renovation' },
+  { id: 6, title: 'Bathroom Remodel', location: 'Thomasville, NC', category: 'Renovation' },
+  { id: 7, title: 'Roof Replacement', location: 'Kernersville, NC', category: 'Roofing' },
+  { id: 8, title: 'Home Repair Project', location: 'Clemmons, NC', category: 'Home Repair' },
+  { id: 9, title: 'Residential Roofing', location: 'Lexington, NC', category: 'Roofing' },
 ];
 
+type Project = (typeof projects)[number];
+
 export function ProjectGrid() {
-  const [lightbox, setLightbox] = useState<{ image: string; category: string } | null>(null);
+  const [lightbox, setLightbox] = useState<Project | null>(null);
 
   useEffect(() => {
     if (!lightbox) return;
@@ -138,24 +36,25 @@ export function ProjectGrid() {
       <section className="section-padding">
         <div className="container-wide">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {projects.map((project, index) => (
+            {projects.map((project) => (
               <button
                 key={project.id}
-                onClick={() => setLightbox({ image: project.image, category: project.category })}
-                className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-300 cursor-zoom-in text-left"
+                type="button"
+                onClick={() => setLightbox(project)}
+                className="group relative rounded-2xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-300 text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-500 focus:ring-offset-2"
               >
-                <div className="relative aspect-[4/3] bg-slate-200">
-                  <Image
-                    src={project.image}
-                    alt={`${project.category} by Timberline Falls`}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    quality={70}
-                    priority={index < 6}
-                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                  />
+                <div className="relative aspect-[4/3] image-placeholder-premium">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-white/20 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
+                  </div>
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/80 to-transparent p-4">
+                  <span className="inline-block px-2 py-0.5 text-xs font-medium bg-accent-red text-white rounded mb-1">
+                    {project.category}
+                  </span>
+                  <p className="text-white text-sm font-semibold">{project.title}</p>
+                  <p className="text-white/70 text-xs">{project.location}</p>
+                </div>
               </button>
             ))}
           </div>
@@ -167,25 +66,30 @@ export function ProjectGrid() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
           onClick={() => setLightbox(null)}
         >
-          <button
-            onClick={() => setLightbox(null)}
-            className="absolute top-4 right-4 text-white/80 hover:text-white transition-colors"
-            aria-label="Close"
-          >
-            <X className="w-8 h-8" />
-          </button>
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-            <span className="px-3 py-1 text-xs font-medium bg-brand-600 text-white rounded-full">
-              {lightbox.category}
-            </span>
-          </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={lightbox.image}
-            alt={lightbox.category}
+          <div
+            className="relative max-w-2xl w-full bg-white rounded-2xl overflow-hidden shadow-elevated animate-fade-in"
             onClick={(e) => e.stopPropagation()}
-            className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
-          />
+          >
+            <div className="relative aspect-[16/9] image-placeholder-premium">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="text-white/30 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
+              </div>
+            </div>
+            <div className="p-6">
+              <span className="inline-block px-2.5 py-0.5 text-xs font-medium bg-accent-red text-white rounded mb-2">
+                {lightbox.category}
+              </span>
+              <h3 className="text-xl font-display font-semibold text-slate-900">{lightbox.title}</h3>
+              <p className="text-slate-500 text-sm mt-1">{lightbox.location}</p>
+            </div>
+            <button
+              onClick={() => setLightbox(null)}
+              className="absolute top-4 right-4 w-9 h-9 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       )}
     </>

@@ -5,8 +5,9 @@ import { Header } from '@/components/layout/Header';
 import { MainWrapper } from '@/components/layout/MainWrapper';
 import { Footer } from '@/components/layout/Footer';
 import { MobileBottomBar } from '@/components/layout/MobileBottomBar';
+import { BackToTop } from '@/components/ui/BackToTop';
 import { JsonLd } from '@/components/seo/JsonLd';
-import { localBusinessSchema } from '@/lib/schema';
+import { localBusinessSchema, webSiteSchema } from '@/lib/schema';
 import '@/styles/globals.css';
 
 const playfairDisplay = Playfair_Display({
@@ -27,21 +28,20 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} | Pool, Landscape & Concrete Construction in Utah`,
+    default: `${siteConfig.name} | Roofing & Home Repair in Lexington, NC`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
-    'pool construction Utah',
-    'swimming pool builders Utah',
-    'custom pool builder Saratoga Springs',
-    'pool installation Utah County',
-    'landscape construction Utah',
-    'concrete services Utah',
-    'outdoor living contractor Utah',
-    'pool builders Bountiful UT',
-    'inground pool Utah',
-    'Timberline Falls',
+    'roofing contractor Lexington NC',
+    'roof replacement Lexington NC',
+    'roofing installation North Carolina',
+    'roof repair Greensboro NC',
+    'home repair Lexington NC',
+    'kitchen renovation Lexington NC',
+    'bathroom renovation Lexington NC',
+    'roofing company Winston-Salem',
+    'Patriot Roofing',
   ],
   alternates: { canonical: siteConfig.url },
   openGraph: {
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: `${siteConfig.name} — Pool, Landscape & Concrete Construction in Utah` }],
+    images: siteConfig.ogImage ? [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: `${siteConfig.name} — Roofing & Home Repair in Lexington, NC` }] : [],
   },
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large' } },
@@ -61,14 +61,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel="preconnect" href="https://assets.cdn.filesafe.space" />
         <link rel="preconnect" href="https://storage.googleapis.com" />
-        <link rel="dns-prefetch" href="https://lirp.cdn-website.com" />
-        <JsonLd data={localBusinessSchema()} />
+        <JsonLd data={[localBusinessSchema(), webSiteSchema()]} />
       </head>
       <body className="min-h-screen flex flex-col">
         <Header />
         <MainWrapper>{children}</MainWrapper>
         <Footer />
         <MobileBottomBar />
+        <BackToTop />
       </body>
     </html>
   );

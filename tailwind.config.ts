@@ -6,33 +6,27 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          50: '#f0f4f8',
+          100: '#d9e2ec',
+          200: '#bcccdc',
+          300: '#9fb3c8',
+          400: '#829ab1',
+          500: '#627d98',
+          600: '#486581',
+          700: '#334e68',
+          800: '#243b53',
+          900: '#1e3a5f',
+          950: '#102a43',
+        },
+        accent: {
+          red: '#b91c1c',
+          'red-light': '#dc2626',
+          'red-dark': '#991b1b',
         },
         slate: {
           850: '#1a2332',
           925: '#0f1623',
           950: '#0a0f18',
-        },
-        sand: {
-          50: '#faf8f5',
-          100: '#f3f0ea',
-          200: '#e8e2d8',
-          300: '#d4cabb',
-          400: '#bfae98',
-        },
-        accent: {
-          gold: '#c5a55a',
-          copper: '#b87333',
         },
       },
       fontFamily: {
@@ -79,7 +73,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
 
 export default config;

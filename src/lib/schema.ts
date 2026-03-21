@@ -6,22 +6,19 @@ export function localBusinessSchema() {
     siteConfig.social.google,
     siteConfig.social.facebook,
     siteConfig.social.instagram,
+    siteConfig.social.yelp,
   ].filter(Boolean);
 
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'HomeAndConstructionBusiness'],
+    '@type': ['LocalBusiness', 'RoofingContractor'],
     '@id': `${siteConfig.url}/#business`,
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    logo: {
-      '@type': 'ImageObject',
-      url: 'https://storage.googleapis.com/msgsndr/VpxNeZuIvxjzZljfxNjd/media/6991e27365ad362154b97372.png',
-    },
-    image: siteConfig.ogImage,
+    image: siteConfig.ogImage || undefined,
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.street || undefined,
@@ -32,15 +29,15 @@ export function localBusinessSchema() {
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 40.3442899,
-      longitude: -111.91013,
+      latitude: 35.8243,
+      longitude: -80.2534,
     },
     hasMap: siteConfig.social.google,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        opens: '07:00',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
         closes: '17:00',
       },
     ],
@@ -48,29 +45,59 @@ export function localBusinessSchema() {
       '@type': 'ContactPoint',
       telephone: siteConfig.phone,
       contactType: 'customer service',
-      areaServed: 'UT',
+      areaServed: 'NC',
       availableLanguage: 'English',
     },
     areaServed: [
-      { '@type': 'AdministrativeArea', name: 'Utah County', addressRegion: 'UT' },
-      { '@type': 'AdministrativeArea', name: 'Salt Lake County', addressRegion: 'UT' },
-      { '@type': 'AdministrativeArea', name: 'Davis County', addressRegion: 'UT' },
-      { '@type': 'AdministrativeArea', name: 'Summit County', addressRegion: 'UT' },
-      { '@type': 'AdministrativeArea', name: 'Tooele County', addressRegion: 'UT' },
-      { '@type': 'AdministrativeArea', name: 'Box Elder County', addressRegion: 'UT' },
+      { '@type': 'City', name: 'Lexington', addressRegion: 'NC' },
+      { '@type': 'City', name: 'Greensboro', addressRegion: 'NC' },
+      { '@type': 'City', name: 'Winston-Salem', addressRegion: 'NC' },
+      { '@type': 'City', name: 'High Point', addressRegion: 'NC' },
+      { '@type': 'City', name: 'Thomasville', addressRegion: 'NC' },
+      { '@type': 'City', name: 'Kernersville', addressRegion: 'NC' },
+      { '@type': 'City', name: 'Clemmons', addressRegion: 'NC' },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: '5.0',
+      reviewCount: '47',
+      bestRating: '5',
+      worstRating: '1',
+    },
     sameAs,
-    priceRange: '$$$$',
+    priceRange: '$$',
     knowsAbout: [
-      'Swimming Pool Construction',
-      'Pool Installation Utah',
-      'Landscape Construction',
-      'Concrete Services',
-      'Outdoor Living Construction',
-      'Retaining Walls',
-      'Outdoor Kitchens',
-      'Artificial Turf Installation',
+      'Roofing Installation',
+      'Roof Replacement',
+      'Roofing Repair',
+      'Storm Damage Repair',
+      'Kitchen Renovation',
+      'Bathroom Renovation',
+      'Home Repair',
     ],
+  };
+}
+
+export function webSiteSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
+    url: siteConfig.url,
+    name: siteConfig.name,
+    description: siteConfig.description,
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${siteConfig.url}/#business`,
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteConfig.url}/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 }
 
@@ -102,7 +129,7 @@ export function serviceSchema(name: string, description: string, url: string) {
     },
     areaServed: {
       '@type': 'State',
-      name: 'Utah',
+      name: 'North Carolina',
     },
   };
 }
@@ -122,7 +149,13 @@ export function faqSchema(faqs: { question: string; answer: string }[]) {
   };
 }
 
-export function articleSchema(title: string, description: string, url: string, datePublished: string) {
+export function articleSchema(
+  title: string,
+  description: string,
+  url: string,
+  datePublished: string,
+  dateModified?: string
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -130,6 +163,7 @@ export function articleSchema(title: string, description: string, url: string, d
     description,
     url,
     datePublished,
+    dateModified: dateModified || datePublished,
     author: {
       '@type': 'Organization',
       name: siteConfig.name,
@@ -139,5 +173,24 @@ export function articleSchema(title: string, description: string, url: string, d
       name: siteConfig.name,
       url: siteConfig.url,
     },
+  };
+}
+
+export function howToSchema(
+  steps: { name: string; text: string }[],
+  name: string,
+  description: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name,
+    description,
+    step: steps.map((step, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: step.name,
+      text: step.text,
+    })),
   };
 }

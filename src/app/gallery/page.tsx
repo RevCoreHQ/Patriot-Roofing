@@ -4,12 +4,13 @@ import { siteConfig } from '@/data/site-config';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ProjectGrid } from '@/components/sections/ProjectGrid';
 import { CTASection } from '@/components/sections/CTASection';
+import { BeforeAfterSlider } from '@/components/ui/BeforeAfterSlider';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Gallery — Pool & Outdoor Living Portfolio | Timberline Falls UT',
-  description: 'Browse our gallery of custom pools, landscape construction, and concrete projects across Saratoga Springs, Bountiful, and surrounding Utah communities.',
+  title: 'Gallery — Roofing & Home Repair Portfolio | Patriot Roofing NC',
+  description: 'Browse our gallery of completed roofing, renovation, and home repair projects across Lexington, Greensboro, Winston-Salem, and surrounding NC communities.',
   path: '/gallery',
 });
 
@@ -29,13 +30,32 @@ export default function GalleryPage() {
               Projects That Speak for Themselves
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Every project represents a homeowner who trusted Timberline Falls to transform their outdoor space. Browse our work and imagine what we can build for you.
+              Every project represents a homeowner who trusted Patriot Roofing & Home Repair to protect and improve their home. Browse our work and see the quality for yourself.
             </p>
           </div>
         </div>
       </div>
+      {/* Before/After */}
+      <section className="section-padding pb-0">
+        <div className="container-wide">
+          <div className="text-center mb-8">
+            <p className="inline-flex items-center gap-2 text-sm font-medium tracking-wider uppercase mb-3">
+              <span className="w-6 h-px bg-accent-red" />
+              <span className="gradient-text-accent">The Transformation</span>
+              <span className="w-6 h-px bg-accent-red" />
+            </p>
+            <h2 className="text-2xl sm:text-3xl font-display font-bold text-slate-900">
+              See the Difference
+            </h2>
+          </div>
+          <div className="max-w-3xl mx-auto">
+            <BeforeAfterSlider />
+          </div>
+        </div>
+      </section>
+
       <ProjectGrid />
-      <CTASection headline="Love What You See?" description="Let's create something just as beautiful for your property. Get a free estimate today." />
+      <CTASection headline="Love What You See?" description="Let's deliver the same quality for your home. Get a free inspection today." />
     </>
   );
 }

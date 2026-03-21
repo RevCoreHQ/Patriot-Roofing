@@ -87,7 +87,7 @@ export async function POST(request: NextRequest) {
     // Uncomment below and set RESEND_API_KEY + CONTACT_EMAIL_TO in .env.local
     //
     // const resendKey = process.env.RESEND_API_KEY;
-    // const emailTo = process.env.CONTACT_EMAIL_TO || 'info@timberlinefallsut.com';
+    // const emailTo = process.env.CONTACT_EMAIL_TO || 'timothy@patriotroofingandhomerepair.com';
     //
     // if (resendKey) {
     //   const emailRes = await fetch('https://api.resend.com/emails', {
@@ -97,7 +97,7 @@ export async function POST(request: NextRequest) {
     //       Authorization: `Bearer ${resendKey}`,
     //     },
     //     body: JSON.stringify({
-    //       from: 'Timberline Falls Website <noreply@timberlinefallsut.com>',
+    //       from: 'Patriot Roofing Website <noreply@patriotroofingandhomerepair.com>',
     //       to: [emailTo],
     //       subject: `New Estimate Request from ${data.firstName} ${data.lastName}`,
     //       html: `
@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'Something went wrong. Please call us directly at (801) 502-0306.' },
+      { error: 'Something went wrong. Please call us directly at (336) 479-6059.' },
       { status: 500 }
     );
   }

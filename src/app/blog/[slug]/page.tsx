@@ -50,7 +50,8 @@ export default async function BlogPostPage({ params }: Props) {
             post.title,
             post.metaDescription,
             `${siteConfig.url}/blog/${post.slug}`,
-            post.datePublished
+            post.datePublished,
+            post.dateModified
           ),
         ]}
       />
@@ -94,12 +95,14 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Article Content */}
       <article className="section-padding">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          {post.content.map((section, i) => (
-            <div key={i} className="mb-10">
-              <h2 className="text-2xl font-display font-bold text-slate-900 mb-4">{section.heading}</h2>
-              <p className="text-slate-700 leading-relaxed text-lg">{section.body}</p>
-            </div>
-          ))}
+          <div className="prose prose-slate prose-lg max-w-none prose-headings:font-display prose-headings:text-slate-900 prose-a:text-brand-600 hover:prose-a:underline">
+            {post.content.map((section, i) => (
+              <div key={i} className="mb-10">
+                <h2>{section.heading}</h2>
+                <p>{section.body}</p>
+              </div>
+            ))}
+          </div>
 
           {/* CTA inline */}
           <div className="mt-12 p-8 bg-brand-50 rounded-2xl border border-brand-100 text-center">
@@ -107,10 +110,10 @@ export default async function BlogPostPage({ params }: Props) {
               Ready to Get Started?
             </h3>
             <p className="text-slate-600 mb-6">
-              Contact Timberline Falls for a free, no-obligation estimate on your project.
+              Contact Patriot Roofing & Home Repair for a free, no-obligation inspection and estimate.
             </p>
             <Button href="/contact" size="lg">
-              Get Your Free Estimate
+              Get Your Free Inspection
             </Button>
           </div>
 
@@ -129,7 +132,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       {/* Related Posts */}
       {otherPosts.length > 0 && (
-        <section className="section-padding bg-sand-50">
+        <section className="section-padding bg-slate-50">
           <div className="container-wide">
             <h2 className="text-2xl font-display font-bold text-slate-900 mb-8">More Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -139,7 +142,7 @@ export default async function BlogPostPage({ params }: Props) {
                   href={`/blog/${p.slug}`}
                   className="group flex flex-col sm:flex-row gap-4 p-5 bg-white rounded-xl border border-slate-100 shadow-soft hover:shadow-card transition-all"
                 >
-                  <div className="sm:w-40 shrink-0 aspect-video sm:aspect-square bg-gradient-to-br from-brand-100 to-sand-100 rounded-lg" />
+                  <div className="sm:w-40 shrink-0 aspect-video sm:aspect-square bg-gradient-to-br from-brand-100 to-slate-100 rounded-lg" />
                   <div>
                     <span className="text-xs font-medium text-brand-600 mb-1 block">{p.category}</span>
                     <h3 className="font-display font-semibold text-slate-900 group-hover:text-brand-600 transition-colors mb-2">

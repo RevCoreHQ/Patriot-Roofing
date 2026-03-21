@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { services, getServiceBySlug, getRelatedServices } from '@/data/services';
@@ -55,20 +54,7 @@ export default async function ServicePage({ params }: Props) {
 
       {/* Hero */}
       <section className="relative py-16 lg:py-24 bg-gradient-to-br from-slate-900 via-brand-950 to-slate-900 overflow-hidden">
-        {service.heroImage && (
-          <>
-            <Image
-              src={service.heroImage}
-              alt={service.heroAlt}
-              fill
-              priority
-              sizes="100vw"
-              quality={70}
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-slate-950/75" />
-          </>
-        )}
+        <div className="absolute inset-0 bg-slate-950/20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs
             items={[
@@ -101,7 +87,7 @@ export default async function ServicePage({ params }: Props) {
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-8">What&apos;s Included</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {service.features.map((feature, i) => (
-              <div key={i} className="flex items-start gap-3 p-4 bg-sand-50 rounded-xl">
+              <div key={i} className="flex items-start gap-3 p-4 bg-slate-50 rounded-xl">
                 <div className="w-6 h-6 rounded-full bg-brand-100 flex items-center justify-center shrink-0 mt-0.5">
                   <span className="text-brand-700 text-xs font-bold">{i + 1}</span>
                 </div>
@@ -114,7 +100,7 @@ export default async function ServicePage({ params }: Props) {
 
       {/* Body content sections */}
       {service.body.length > 0 && (
-        <section className="section-padding bg-gradient-to-b from-sand-50 to-white">
+        <section className="section-padding bg-gradient-to-b from-slate-50 to-white">
           <div className="container-narrow">
             <div className="space-y-12">
               {service.body.map((section, i) => (

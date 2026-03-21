@@ -8,8 +8,8 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Our Services — Pool, Landscape & Concrete | Timberline Falls UT',
-  description: 'Explore our full range of outdoor living services: pool construction, 3D design, landscaping, artificial turf, outdoor kitchens, concrete driveways, retaining walls, and more.',
+  title: 'Our Services — Roofing, Renovations & Home Repair | Patriot Roofing NC',
+  description: 'Explore our full range of services: roofing installation, roof replacement, roofing repair, kitchen renovation, bathroom renovation, and home repair in Lexington, NC.',
   path: '/services',
 });
 
@@ -26,18 +26,18 @@ export default function ServicesPage() {
           <div className="max-w-3xl mb-4">
             <p className="text-brand-600 font-medium text-sm tracking-wide uppercase mb-3">What We Do</p>
             <h1 className="text-4xl sm:text-5xl font-display font-bold text-slate-900 mb-4">
-              Complete Outdoor Living Services
+              Complete Roofing & Home Repair Services
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed">
-              From custom swimming pools to complete landscape transformations and expert concrete work, Timberline Falls delivers every aspect of outdoor construction with 20+ years of craftsmanship.
+              From professional roofing installation and repair to kitchen and bathroom renovations, Patriot Roofing & Home Repair delivers every aspect of home improvement with 15+ years of craftsmanship.
             </p>
           </div>
         </div>
       </div>
 
-      <ServiceCards title="Pool Services" subtitle="Swimming Pools" category="pools" />
-      <ServiceCards title="Landscape Services" subtitle="Landscaping" category="landscape" />
-      <ServiceCards title="Concrete Services" subtitle="Concrete" category="concrete" />
+      <ServiceCards title="Roofing Services" subtitle="Roofing" category="roofing" />
+      <ServiceCards title="Renovation Services" subtitle="Renovations" category="renovation" />
+      <ServiceCards title="Home Repair Services" subtitle="Repairs" category="repair" />
 
       <CTASection />
     </>

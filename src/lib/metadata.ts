@@ -26,7 +26,7 @@ export function generatePageMetadata({
       description,
       url,
       siteName: siteConfig.name,
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: image ? [{ url: image, width: 1200, height: 630, alt: title }] : [],
       locale: 'en_US',
       type: 'website',
     },
@@ -34,7 +34,7 @@ export function generatePageMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [image],
+      images: image ? [image] : [],
     },
   };
 }

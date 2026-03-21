@@ -1,10 +1,10 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { Shield, BadgeCheck, Monitor, FileText } from 'lucide-react';
+import { Shield, BadgeCheck, ClipboardCheck, FileText } from 'lucide-react';
 import { siteConfig } from '@/data/site-config';
 
-const iconMap = { Shield, BadgeCheck, Monitor, FileText } as const;
+const iconMap = { Shield, BadgeCheck, ClipboardCheck, FileText } as const;
 
 export function TrustStrip() {
   const [visible, setVisible] = useState(false);
@@ -47,7 +47,7 @@ export function TrustStrip() {
                 key={point.label}
                 className="group flex items-center gap-3 bg-white rounded-2xl p-4 lg:p-5 shadow-card border border-slate-100 hover:-translate-y-0.5 transition-all duration-300"
                 style={{
-                  borderTop: '2px solid var(--gold)',
+                  borderTop: '2px solid var(--accent-red)',
                   opacity: visible ? 1 : 0,
                   transform: visible ? 'translateY(0)' : 'translateY(24px)',
                   transition: `opacity 0.5s ease ${i * 0.1}s, transform 0.5s ease ${i * 0.1}s`,

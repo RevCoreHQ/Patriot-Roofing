@@ -8,8 +8,8 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = generatePageMetadata({
-  title: 'Contact Timberline Falls — Free Estimate | Pool & Landscape Builder UT',
-  description: 'Get a free estimate for pool construction, landscaping, or concrete services. Call (801) 502-0306 or fill out our form. Saratoga Springs & Bountiful, UT.',
+  title: 'Contact Patriot Roofing & Home Repair — Free Inspection | Lexington, NC',
+  description: 'Get a free roof inspection and estimate. Call (336) 479-6059 or fill out our form. Serving Lexington, Greensboro, Winston-Salem, and surrounding NC areas.',
   path: '/contact',
 });
 
@@ -29,10 +29,10 @@ export default function ContactPage() {
           <div className="lg:col-span-2">
             <p className="text-brand-600 font-medium text-sm tracking-wide uppercase mb-3">Get In Touch</p>
             <h1 className="text-4xl sm:text-5xl font-display font-bold text-slate-900 mb-6">
-              Request Your Free Estimate
+              Request Your Free Inspection
             </h1>
             <p className="text-lg text-slate-600 leading-relaxed mb-8">
-              Tell us about your project and we will be in touch within one business day with a consultation plan. Or call us directly, we are happy to talk.
+              Tell us about your project and we will be in touch within one business day. Or call us directly, we are happy to talk.
             </p>
 
             <div className="space-y-5">
@@ -69,8 +69,8 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-500">Hours</p>
-                  <p className="font-semibold text-slate-900">Mon–Sat {siteConfig.hours.weekday}</p>
-                  <p className="text-sm text-slate-500">Sunday: {siteConfig.hours.sunday}</p>
+                  <p className="font-semibold text-slate-900">Mon–Fri {siteConfig.hours.weekday}</p>
+                  <p className="text-sm text-slate-500">Sat–Sun: {siteConfig.hours.saturday}</p>
                 </div>
               </div>
             </div>
@@ -85,6 +85,24 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
+
+    {/* Google Maps */}
+    <section className="px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="container-wide">
+        <div className="rounded-2xl overflow-hidden shadow-card border border-slate-100" style={{ height: '400px' }}>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3256.0!2d-80.2534!3d35.8243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQ5JzI3LjUiTiA4MMKwMTUnMTIuMiJX!5e0!3m2!1sen!2sus!4v1"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Patriot Roofing & Home Repair — Lexington, NC"
+          />
+        </div>
+      </div>
+    </section>
     </>
   );
 }

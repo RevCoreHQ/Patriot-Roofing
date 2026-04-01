@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { services, ServiceData } from '@/data/services';
@@ -28,10 +29,20 @@ function ServiceCard({ service, index }: { service: ServiceData; index: number }
       href={`/services/${service.slug}`}
       className="group relative block bg-white rounded-2xl border border-slate-100 p-6 lg:p-8 shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1"
     >
-      <div className="relative h-48 mb-6 rounded-xl overflow-hidden image-placeholder-premium">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-white/20 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
-        </div>
+      <div className="relative h-48 mb-6 rounded-xl overflow-hidden">
+        {service.heroImage ? (
+          <Image
+            src={service.heroImage}
+            alt={service.heroAlt || service.title}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="absolute inset-0 image-placeholder-premium flex items-center justify-center">
+            <span className="text-white/20 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
+          </div>
+        )}
       </div>
       <div className="inline-block px-2.5 py-1 text-xs font-medium bg-brand-50 text-brand-700 rounded-full mb-3 capitalize">
         {service.category}

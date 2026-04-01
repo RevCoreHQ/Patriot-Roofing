@@ -198,7 +198,7 @@ export const services: ServiceData[] = [
     metaDescription: 'Full-service kitchen renovation in Lexington, NC. Custom cabinets, countertops, backsplash, flooring, and more. Serving Greensboro, Winston-Salem, and the Piedmont Triad. Free estimates.',
     h1: 'Kitchen Renovation Services in Lexington, NC',
     intro: "The kitchen is the heart of every home, and a well-planned renovation can transform it from outdated and cramped into a beautiful, functional space your family will enjoy for years. Patriot Roofing & Home Repair brings 15+ years of craftsmanship to every kitchen remodel in Lexington, NC and across the Piedmont Triad. Whether you want to update your cabinets and countertops or gut the room for a completely new layout, our team manages the entire project from design through final walkthrough.",
-    heroImage: '',
+    heroImage: 'https://assets.cdn.filesafe.space/UrIbmSbNwH6Sfvb4CBZw/media/69cce4a3ddfdcb0abb7369c0.jpg',
     heroAlt: 'Beautifully renovated kitchen with custom cabinets and granite countertops in Lexington, North Carolina',
     features: [
       'Custom and semi-custom cabinet installation with soft-close hardware',
@@ -252,7 +252,7 @@ export const services: ServiceData[] = [
     metaDescription: 'Complete bathroom renovation in Lexington, NC. Tile, vanity, shower, tub, plumbing, and lighting upgrades. Serving Greensboro, Winston-Salem, High Point, and the Piedmont Triad.',
     h1: 'Bathroom Renovation Services in Lexington, NC',
     intro: "An outdated bathroom drags down your home's comfort and value. Patriot Roofing & Home Repair delivers complete bathroom renovations across Lexington, NC and the Piedmont Triad, turning tired bathrooms into modern, spa-like retreats. From a simple vanity and fixture swap to a full gut remodel with new tile, walk-in showers, and custom lighting, our skilled craftsmen handle every aspect of the project with attention to detail and respect for your home.",
-    heroImage: '',
+    heroImage: 'https://assets.cdn.filesafe.space/UrIbmSbNwH6Sfvb4CBZw/media/69cce4a297f00150db8700dc.jpg',
     heroAlt: 'Modern bathroom renovation with walk-in tile shower and new vanity in Lexington, North Carolina',
     features: [
       'Custom tile work for floors, walls, and shower surrounds',
@@ -306,7 +306,7 @@ export const services: ServiceData[] = [
     metaDescription: 'Reliable home repair and handyman services in Lexington, NC. Drywall, painting, doors, windows, flooring, siding, and more. Serving Greensboro, Winston-Salem, and the Piedmont Triad.',
     h1: 'Home Repair & Maintenance Services in Lexington, NC',
     intro: "Every home needs ongoing maintenance and the occasional repair, but finding a contractor you can trust for smaller jobs can be a challenge. Patriot Roofing & Home Repair fills that gap with reliable, high-quality home repair and handyman services across Lexington, NC and the Piedmont Triad. No job is too small for our team. Whether you need a drywall patch, a door that actually closes properly, or a full exterior siding repair, we show up on time, do the work right, and leave your home in better shape than we found it.",
-    heroImage: '',
+    heroImage: 'https://assets.cdn.filesafe.space/UrIbmSbNwH6Sfvb4CBZw/media/69cce4a2c859392b982acd2a.jpg',
     heroAlt: 'Home repair professional performing maintenance work on a residential property in Lexington, North Carolina',
     features: [
       'Drywall repair, patching, and finishing for walls and ceilings',

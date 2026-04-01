@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Shield, Home, Wrench } from 'lucide-react';
 import { generatePageMetadata } from '@/lib/metadata';
@@ -27,6 +28,7 @@ const serviceCategories = [
       'Professional roofing installation, replacement, and repair. We protect your home with quality materials and expert craftsmanship built to last.',
     href: '/services/roofing-installation',
     features: ['Installation', 'Replacement', 'Repair', 'Storm Damage'],
+    image: '',
   },
   {
     icon: Home,
@@ -35,6 +37,7 @@ const serviceCategories = [
       'Transform your kitchen or bathroom with professional renovation services. Modern upgrades that improve functionality and increase your home\'s value.',
     href: '/services/kitchen-renovation',
     features: ['Kitchen Remodel', 'Bathroom Remodel', 'Countertops', 'Flooring'],
+    image: 'https://assets.cdn.filesafe.space/UrIbmSbNwH6Sfvb4CBZw/media/69cce4a3ddfdcb0abb7369c0.jpg',
   },
   {
     icon: Wrench,
@@ -43,6 +46,7 @@ const serviceCategories = [
       'Keep your property safe, functional, and well-maintained with our professional home repair services. No job is too small.',
     href: '/services/home-repair',
     features: ['Drywall', 'Painting', 'Doors & Windows', 'Siding'],
+    image: 'https://assets.cdn.filesafe.space/UrIbmSbNwH6Sfvb4CBZw/media/69cce4a2c859392b982acd2a.jpg',
   },
 ];
 
@@ -111,12 +115,30 @@ export default function HomePage() {
                 <Link
                   key={cat.href}
                   href={cat.href}
-                  className="group relative bg-white rounded-2xl border border-slate-100 p-8 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
+                  className="group relative bg-white rounded-2xl border border-slate-100 shadow-soft hover:shadow-elevated transition-all duration-300 hover:-translate-y-1.5 overflow-hidden"
                 >
                   {/* Top accent */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-red via-accent-red-light to-accent-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-red via-accent-red-light to-accent-red opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
 
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-6 group-hover:from-brand-100 group-hover:to-brand-200 transition-all duration-300 shadow-sm">
+                  {/* Card image */}
+                  <div className="relative h-48 overflow-hidden">
+                    {cat.image ? (
+                      <Image
+                        src={cat.image}
+                        alt={cat.title}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 image-placeholder-premium flex items-center justify-center">
+                        <span className="text-white/20 text-xs font-medium tracking-widest uppercase">Photo Coming Soon</span>
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="p-8">
+                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 flex items-center justify-center mb-6 group-hover:from-brand-100 group-hover:to-brand-200 transition-all duration-300 shadow-sm -mt-12 relative z-10 border-2 border-white">
                     <Icon className="w-7 h-7 text-brand-700" />
                   </div>
                   <h3 className="text-2xl font-display font-semibold text-slate-900 mb-3 group-hover:text-brand-600 transition-colors">
@@ -138,6 +160,7 @@ export default function HomePage() {
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 group-hover:gap-2.5 transition-all">
                     Explore Services <ArrowRight className="w-4 h-4" />
                   </span>
+                  </div>
                 </Link>
               );
             })}
